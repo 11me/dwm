@@ -24,7 +24,8 @@ static const char col_cyan[]        = "#005577";
 static const char text_color[]      = "#f3f4f5";
 static const char bg_color1[]       = "#3399ff";
 static const char bg_color2[]       = "#0d1b2a";
-static const char border_color[]    = "#0066ff";
+//static const char border_color[]    = "#0066ff";
+static const char border_color[]    = "#990000";
 //static const char *colors[][3]      = {
 //	/*               fg         bg         border   */
 //	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -51,6 +52,7 @@ static const Rule rules[] = {
 	{ "TelegramDesktop",     NULL,     NULL,           0,         1,          0,          -1,        -1 },
 	{ "Pavucontrol",         NULL,     NULL,           0,         1,          0,          -1,        -1 },
 	{ "Thunar",              NULL,     NULL,           0,         1,          0,          -1,        -1 },
+  { "Zotero",         "Toplevel",    NULL,           0,         1,          0,          -1         -1 },
 	{ NULL,                  NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 
 };
