@@ -26,7 +26,7 @@ static const char text_color[]      = "#f3f4f5";
 static const char bg_color1[]       = "#3399ff";
 static const char bg_color2[]       = "#0d1b2a";
 //static const char border_color[]    = "#0066ff";
-static const char border_color[]    = "#990000";
+static const char border_color[]    = "#61afef";
 
 /* ********************* ONEDARK COLORS ****************/
 static const char col_black[]         = "#282c34";
@@ -138,7 +138,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,             XK_y,      setlayout,      {.v = &layouts[3]} },
-    { MODKEY,                       XK_u,      setlayout,      {.v = &layouts[4]} },
+  { MODKEY,                       XK_u,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[6]} },
 	{ MODKEY|ShiftMask,             XK_i,      setlayout,      {.v = &layouts[7]} },
