@@ -63,16 +63,16 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-    	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",                NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Firefox",             NULL,     NULL,           0,         0,          0,          -1,        -1 },
-	{ "St",                  NULL,     NULL,           0,         0,          1,           0,        -1 },
-	{ "TelegramDesktop",     NULL,     NULL,           0,         1,          0,          -1,        -1 },
-	{ "Pavucontrol",         NULL,     NULL,           0,         1,          0,          -1,        -1 },
-	{ "Thunar",              NULL,     NULL,           0,         1,          0,          -1,        -1 },
-  { "Zotero",         "Toplevel",    NULL,           0,         1,          0,          -1         -1 },
-	{ NULL,                  NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
-
+    	/* class     instance  title           tags mask  isfloating  isterminal  noswallow    monitor    scratchpad*/
+	{ "Gimp",                NULL,     NULL,           0,         1,          0,           0,        -1,				 0 },
+	{ "Firefox",             NULL,     NULL,           0,         0,          0,          -1,        -1,				 0 },
+	{ "St",                  NULL,     NULL,           0,         0,          1,           0,        -1,				 0 },
+	{ "TelegramDesktop",     NULL,     NULL,           0,         1,          0,          -1,        -1,				 0 },
+	{ "Pavucontrol",         NULL,     NULL,           0,         1,          0,          -1,        -1,				 0 },
+	{ "Thunar",              NULL,     NULL,           0,         1,          0,          -1,        -1,				 0 },
+  { "Zotero",         "Toplevel",    NULL,           0,         1,          0,          -1         -1,				 0 },
+	{ NULL,                  NULL,     "Event Tester", 0,         0,          0,           1,        -1,				 0 }, /* xev */
+	{ NULL,                  NULL,   "scratchpad",     0,         1,          1,           0,        -1,        's'},
 };
 
 /* layout(s) */
@@ -119,6 +119,9 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", NULL};
 static const char *termcmd[]  = { "st", NULL };
 
+/*First arg only serves to match against key in rules*/
+static const char *scratchpadcmd[] = {"s", "st", "-t", "scratchpad", NULL};
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
@@ -144,6 +147,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[6]} },
 	{ MODKEY|ShiftMask,             XK_i,      setlayout,      {.v = &layouts[7]} },
 	//{ MODKEY,                       XK_space,  setlayout,      {0} },
+	{ MODKEY,                       XK_apostrophe,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
