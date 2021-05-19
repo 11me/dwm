@@ -32,7 +32,7 @@ static const char border_color[]    = "#61afef";
 /* ********************* ONEDARK COLORS ****************/
 static const char col_black[]         = "#282c34";
 static const char col_grey[]          = "#4b5263";
-static const char col_white[]         = "#abb2bf";
+static const char col_white[]         = "#f3f4f5";
 static const char col_blue[]          = "#61afef";
 static const char col_magenta[]       = "#c678dd";
 static const char col_cyan[]          = "#56b6c2";
