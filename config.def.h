@@ -42,16 +42,16 @@ static const char col_green[]         = "#98c379";
 static const char col_light_yellow[]  = "#e5c07b";
 static const char col_dark_yellow[]   = "#d19a66";
 
-static const char *colors[][3]      = {
+static const char *colors[][3] = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { text_color, bg_color2, col_gray2 },
 	[SchemeSel]  = { text_color, bg_color1, border_color  },
 
 	[SchemeStatus]    = { col_white, col_black,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]   = { col_white, col_grey,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-  [SchemeTagsNorm]  = { col_white, col_black,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-  [SchemeInfoSel]   = { col_white, col_black,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-  [SchemeInfoNorm]  = { col_green, col_black,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+    [SchemeTagsNorm]  = { col_white, col_black,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+    [SchemeInfoSel]   = { col_white, col_black,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+    [SchemeInfoNorm]  = { col_green, col_black,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 
 };
 
@@ -64,15 +64,15 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
     	/* class     instance  title           tags mask  isfloating  isterminal  noswallow    monitor    scratchpad*/
-	{ "Gimp",                NULL,     NULL,           0,         1,          0,           0,        -1,				 0 },
-	{ "Firefox",             NULL,     NULL,           0,         0,          0,          -1,        -1,				 0 },
-	{ "St",                  NULL,     NULL,           0,         0,          1,           0,        -1,				 0 },
-	{ "TelegramDesktop",     NULL,     NULL,           0,         1,          0,          -1,        -1,				 0 },
-	{ "Pavucontrol",         NULL,     NULL,           0,         1,          0,          -1,        -1,				 0 },
-	{ "Thunar",              NULL,     NULL,           0,         1,          0,          -1,        -1,				 0 },
-  { "Zotero",         "Toplevel",    NULL,           0,         1,          0,          -1         -1,				 0 },
-	{ NULL,                  NULL,     "Event Tester", 0,         0,          0,           1,        -1,				 0 }, /* xev */
-	{ NULL,                  NULL,   "scratchpad",     0,         1,          1,           0,        -1,        's'},
+	{ "Gimp",                NULL,      NULL,           0,         1,          0,           0,        -1,				 0 },
+	{ "Firefox",             NULL,      NULL,           0,         0,          0,          -1,        -1,				 0 },
+	{ "St",                  NULL,      NULL,           0,         0,          1,           0,        -1,				 0 },
+	{ "TelegramDesktop",     NULL,      NULL,           0,         1,          0,          -1,        -1,				 0 },
+	{ "Pavucontrol",         NULL,      NULL,           0,         1,          0,          -1,        -1,				 0 },
+	{ "Thunar",              NULL,      NULL,           0,         1,          0,          -1,        -1,				 0 },
+    { "Zotero",             "Toplevel", NULL,           0,         1,          0,          -1         -1,				 0 },
+	{ NULL,                  NULL,     "Event Tester",  0,         0,          0,           1,        -1,				 0 }, /* xev */
+	{ NULL,                  NULL,     "scratchpad",    0,         1,          1,           0,        -1,               's'},
 };
 
 /* layout(s) */
@@ -115,7 +115,6 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-//static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *dmenucmd[] = { "dmenu_run", NULL};
 static const char *termcmd[]  = { "st", NULL };
 
@@ -126,7 +125,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	//{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+/*  { MODKEY,                       XK_Return, spawn,          {.v = termcmd } }, */
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("$TERMINAL") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -142,7 +141,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,             XK_y,      setlayout,      {.v = &layouts[3]} },
-  { MODKEY,                       XK_u,      setlayout,      {.v = &layouts[4]} },
+    { MODKEY,                       XK_u,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[6]} },
 	{ MODKEY|ShiftMask,             XK_i,      setlayout,      {.v = &layouts[7]} },
